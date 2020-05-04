@@ -13,7 +13,7 @@ Subtracting it to the original signal allows a further round of iterations to de
 The removal of the low frequency bias exposes the 2Hz frequency mode, which can be filtered out easily.
 Then a set of iterations with stringent sifting convergence limits will remove most of the chuff due to the random noise.
 
-The process here requires a bit of tinkering, but looking at the reconstructed phase, unwrapped from the one estimated via Hilbert Transform steps, it's quite clear how even such a tricky signal can be treated effectovely.
+The process here requires a bit of tinkering, but looking at the reconstructed phase, unwrapped from the one estimated via Hilbert Transform steps, it's quite clear how even such a tricky signal can be treated effectively.
 
 The instantaneous frequency estimate confirms a linear trend, while fitting a 3rd degree polynomial to the unwrapped phase will return a decent approximation of the orginal input one.
 
