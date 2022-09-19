@@ -34,13 +34,11 @@ def siftStepCubSpl( xArray, sigArray ):
     # 
     # signal length
     sigLen = len( sigArray )
-    # point-to-point differential
-    sigDiff = 0.0 * sigArray
-    sigDiff[1:sigLen] = sigArray[1:sigLen] - sigArray[0:sigLen-1]
-    # 
-    # gradient signature - positive and negative
-    grdPls = sigDiff > 0.0
-    grdMns = ~grdPls
+    # point-to-point gradient signature - positive
+    grdPls = 0 * sigArray
+    grdPls[1:sigLen] = sigArray[1:sigLen] > sigArray[0:sigLen-1]
+    # complementary - negative
+    grdMns = grdPls < 1
     #
     # calculate indexes to local sup and inf elements
     #
@@ -87,13 +85,11 @@ def siftStepPchp( xArray, sigArray ):
     # 
     # signal length
     sigLen = len( sigArray )
-    # point-to-point differential
-    sigDiff = 0.0 * sigArray
-    sigDiff[1:sigLen] = sigArray[1:sigLen] - sigArray[0:sigLen-1]
-    # 
-    # gradient signature - positive and negative
-    grdPls = sigDiff > 0.0
-    grdMns = ~grdPls
+    # point-to-point gradient signature - positive
+    grdPls = 0 * sigArray
+    grdPls[1:sigLen] = sigArray[1:sigLen] > sigArray[0:sigLen-1]
+    # complementary - negative
+    grdMns = grdPls < 1
     #
     # calculate indexes to local sup and inf elements
     #
